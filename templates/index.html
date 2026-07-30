@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Geodesic Auth — Coordinate-Sequence Authentication</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="console">
+
+  <!-- LEFT: instrument panel -->
+  <aside class="panel">
+    <header class="panel__header">
+      <div class="panel__eyebrow">GEODESIC AUTH · FIELD INSTRUMENT</div>
+      <h1 class="panel__title">Click your<br/>coordinates.</h1>
+      <p class="panel__sub">Your password is a place, not a string. Select an ordered sequence of points on the map to register or authenticate.</p>
+    </header>
+
+    <div class="mode-switch" role="tablist">
+      <button class="mode-switch__btn is-active" data-mode="register" role="tab">Register</button>
+      <button class="mode-switch__btn" data-mode="login" role="tab">Authenticate</button>
+    </div>
+
+    <div class="field">
+      <label for="username">Username</label>
+      <input id="username" type="text" autocomplete="off" placeholder="surveyor_07" maxlength="64" />
+    </div>
+
+    <div class="readout" id="readout">
+      <div class="readout__label">Selected points</div>
+      <ol class="readout__list" id="point-list">
+        <li class="readout__empty">No points selected yet</li>
+      </ol>
+      <button class="btn btn--ghost" id="undo-btn" disabled>Undo last point</button>
+    </div>
+
+    <button class="btn btn--primary" id="submit-btn" disabled>Register sequence</button>
+    <div class="status" id="status" aria-live="polite"></div>
+
+    <div class="gauge-block">
+      <div class="gauge-block__label">Effective keyspace <span class="gauge-block__hint">(current map view)</span></div>
+      <div class="gauge">
+        <svg viewBox="0 0 120 68" class="gauge__svg">
+          <path d="M10 60 A50 50 0 0 1 110 60" class="gauge__track" />
+          <path d="M10 60 A50 50 0 0 1 110 60" class="gauge__fill" id="gauge-fill" />
+          <line x1="60" y1="60" x2="60" y2="18" id="gauge-needle" class="gauge__needle" />
+          <circle cx="60" cy="60" r="4" class="gauge__pivot" />
+        </svg>
+        <div class="gauge__reading">
+          <span id="entropy-bits">—</span> <span class="gauge__unit">bits</span>
+        </div>
+      </div>
+      <div class="gauge-block__equiv">≈ <span id="equiv-len">—</span>-character alphanumeric password</div>
+    </div>
+
+    <details class="notes">
+      <summary>How this actually works</summary>
+      <p>Each click snaps to a ~55m grid cell before hashing — that's the tolerance window that lets you re-click "close enough." The ordered sequence is salted and run through PBKDF2-SHA256, the same way a typed password would be hashed. Raw coordinates are never stored.</p>
+    </details>
+  </aside>
+
+  <!-- RIGHT: map -->
+  <main class="map-wrap">
+    <div id="map"></div>
+    <div class="crosshair-readout" id="crosshair-readout">
+      <span class="crosshair-readout__lat">LAT —</span>
+      <span class="crosshair-readout__lng">LNG —</span>
+    </div>
+    <div class="decoy-note" id="decoy-note">Decoy markers are shown on login to resist shoulder-surfing — only your real sequence is checked.</div>
+  </main>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
