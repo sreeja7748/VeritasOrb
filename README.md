@@ -161,3 +161,7 @@ git push origin feature-name
 This project is released for educational and research purposes. Feel free to use, modify, and extend it with appropriate attribution.
 
 ---
+
+## 👩‍💻 Author
+
+Developed as a cybersecurity project exploring secure alternatives to traditional password-based authentication using geographic interaction and modern cryptographic techniques.
