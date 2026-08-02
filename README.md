@@ -32,3 +32,18 @@ To ensure security, the clicked locations are **snapped to configurable grid cel
 - Leaflet.js (Interactive Maps)
 
 ---
+
+## 📂 Project Structure
+
+```
+VeritasOrbs/
+│
+├── app.py
+├── requirements.txt
+├── geodesic_auth.db
+├── static/
+├── templates/
+└── README.md
+```
+
+---
