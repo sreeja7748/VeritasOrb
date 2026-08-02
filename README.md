@@ -104,3 +104,15 @@ http://127.0.0.1:5000
 6. Multiple failed login attempts trigger temporary account lockout.
 
 ---
+
+## 🔒 Security Features
+
+- PBKDF2-HMAC-SHA256 hashing
+- Unique salt per user
+- Constant-time hash comparison
+- Grid-based tolerance matching
+- Rate limiting
+- Temporary account lockout
+- No raw geographic coordinates stored
+
+---
