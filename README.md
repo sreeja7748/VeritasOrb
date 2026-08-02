@@ -128,6 +128,14 @@ http://127.0.0.1:5000
 
 ---
 
+
+## 📸 Project Screenshots
+<img width="1905" height="1029" alt="Screenshot (314)" src="https://github.com/user-attachments/assets/4eff7379-b5cb-4f5c-9c71-1440fcec897e" />
+<img width="1896" height="1021" alt="Screenshot (315)" src="https://github.com/user-attachments/assets/64f7f551-8a63-4457-9f99-a2b3902a1563" />
+<img width="1894" height="1024" alt="Screenshot (316)" src="https://github.com/user-attachments/assets/657fec2b-4db6-467b-9d1c-9aa9fa4710dd" />
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome!
