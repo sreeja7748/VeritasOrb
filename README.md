@@ -20,3 +20,15 @@ To ensure security, the clicked locations are **snapped to configurable grid cel
 - ⚡ Fast Flask backend with interactive web interface
 
 ---
+
+## 🛠️ Tech Stack
+
+- Python 3
+- Flask
+- SQLite
+- HTML5
+- CSS3
+- JavaScript
+- Leaflet.js (Interactive Maps)
+
+---
