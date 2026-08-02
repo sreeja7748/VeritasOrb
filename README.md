@@ -93,3 +93,14 @@ http://127.0.0.1:5000
 ```
 
 ---
+
+## 🔐 How It Works
+
+1. A user selects an ordered sequence of locations on the interactive map.
+2. Each coordinate is snapped to a configurable tolerance grid.
+3. The sequence is serialized and combined with a unique random salt.
+4. The data is hashed using **PBKDF2-HMAC-SHA256**.
+5. During login, the clicked sequence undergoes the same process and the hashes are securely compared.
+6. Multiple failed login attempts trigger temporary account lockout.
+
+---
