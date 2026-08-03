@@ -172,4 +172,8 @@ This project is released for educational and research purposes. Feel free to use
 
 ## 👩‍💻 Author
 
-Developed as a cybersecurity project exploring secure alternatives to traditional password-based authentication using geographic interaction and modern cryptographic techniques.
+**Sreeja Dey**
+
+Computer Science & Engineering Student
+
+GitHub: https://github.com/sreeja7748
